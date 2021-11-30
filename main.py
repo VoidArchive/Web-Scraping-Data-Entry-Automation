@@ -12,11 +12,11 @@ headers = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-# rent_data = ScrapeData(url=zillow_url, headers=headers)
+rent_data = ScrapeData(url=zillow_url, headers=headers)
 
-# all_urls = rent_data.scrape_url()
-# all_prices = rent_data.scrape_price()
-# all_address = rent_data.scrape_address()
+all_urls = rent_data.scrape_url()
+all_prices = rent_data.scrape_price()
+all_address = rent_data.scrape_address()
 
 # print(len(all_urls))
 # print(len(all_prices))
@@ -27,3 +27,5 @@ headers = {
 # ------------------ Fill Google Form-------#
 
 form = PostData(GOOGLE_FORM)
+for index in range(len(all_urls)-1):
+    form.fill_form(address=all_address[index],price=all_prices[index],url=all_urls[index])
