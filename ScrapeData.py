@@ -18,3 +18,8 @@ class ScrapeData:
         all_price = self.soup.find_all(name="div", class_="list-card-price")
         price_list = [price.getText().split("/")[0] for price in all_price]
         return price_list
+
+    def scrape_address(self):
+        all_address = self.soup.find_all(name="address",class_="list-card-addr")
+        address_list = [address.getText() for address in all_address]
+        return address_list

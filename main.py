@@ -13,8 +13,10 @@ rent_data = ScrapeData(url=zillow_url,headers=headers)
 
 all_urls = rent_data.scrape_url()
 all_prices = rent_data.scrape_price()
-
+all_address = rent_data.scrape_address()
 # print(len(all_urls))
 # print(len(all_prices))
 
-print(all_prices)
+# print(all_prices)
+# print(all_address)
+
