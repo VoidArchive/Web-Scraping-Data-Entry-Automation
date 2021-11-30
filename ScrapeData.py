@@ -13,3 +13,8 @@ class ScrapeData:
         all_url = self.soup.find_all(name="a", class_= "list-card-link")
         link_list = [link.get("href") for link in all_url]
         return list(set(link_list))
+    
+    def scrape_price(self):
+        all_price = self.soup.find_all(name="div", class_="list-card-price")
+        price_list = [price.getText().split("/")[0] for price in all_price]
+        return price_list
